@@ -1,5 +1,21 @@
 package hello
 
+import "fmt"
+
 templ Hello(name string){
-    <div>Hello, {name}</div>
+    <h1>Hello, {name}</h1>
+}
+
+templ Greeting(name string) {
+    <div class="greeting">
+        @Hello(name)
+        <h1>Greetings!</h1>
+    </div>
+}
+
+templ Salary(name string, salary int) {
+    <div class="salary">
+        @Hello(name)
+        <h2>Your salary is {fmt.Sprintf("%v",salary)}</h2>
+    </div>
 }
